@@ -55,7 +55,7 @@ cryprsetup luksClose kali-encryption-storage
 ```
 
 ### データ保存領域のとKali Live USB本体のセットアップ
-`/mnt/kali-storage`に移りターミナルから`git clone https://github.com/Extr3m4R4710/create-kali-live-usb-whith-encryption-storage`を実行してください。まっさらなKali Live環境を初期化する`1n17_ka11.sh`と必要なコンポーネントと実用に即したフォルダがクローンされます。
+`/mnt/kali-storage`に移りターミナルから`git clone https://github.com/Extr3m4R4710/create-kali-live-usb-whith-encryption-storage`を実行してください。まっさらなKali Live環境を初期化する`1n17_ka11.sh`がクローンされます。
 
 その後5GB領域(/dev/sdX1)へ執筆時点で最新の`kali-linux-2024.3-live-amd64.iso`を`必ずcpコマンドでROM焼き`してください。ddやその他イメージライターは絶対に使わないのでください。USB全体が上書きされてしまう為です。
 
