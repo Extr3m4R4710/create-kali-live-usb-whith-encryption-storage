@@ -85,4 +85,4 @@ sudo bash ./1n17_ka11.sh
 ![](./img/kali-live-desktop-screenshot.png)
 
 ## 余談
-今回はKali Linuxを使っていますが、`1n17_ka11.sh`は主に`curl`、`apt`、`git`で構成されています。パッケージ名の整合性さえ取れたらParrotOSやBackBoxでも動作します。つまりLive領域にOSを割り当てさえすれば理屈の上ではどんなOSでも動きます。
+今回はKali Linuxを使っていますが、`1n17_ka11.sh`は主に`curl`、`apt`、`git`で構成されています。パッケージ名の整合性さえ確保できればParrotOSやBackBoxでも動作します。つまりLive領域にOSを割り当てさえすれば理屈の上ではどんなOSでも動きます。
