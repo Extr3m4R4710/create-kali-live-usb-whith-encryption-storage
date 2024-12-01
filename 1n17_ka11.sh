@@ -39,7 +39,7 @@ function main()
 
         fi
     else
-        echo -e "$RED [X] REEOR: YOU MOUST BE ROOT"
+        echo -e "$RED [X] ERROR: YOU MOUST BE ROOT"
     fi
 }
 
