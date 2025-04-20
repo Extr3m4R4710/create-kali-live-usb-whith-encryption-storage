@@ -17,15 +17,24 @@ function ascii_banner()
 
 function init_live_kali()
 {
-    sudo apt update && sudo apt install riseup-vpn ibus-mozc tor keepassxc gpg sn0int proxychains-ng
+    apt update && apt install riseup-vpn ibus-mozc tor keepassxc gpg sn0int proxychains-ng
     $CURL_VIMRC_CMD && cp -v "$(pwd)/.vimrc" ~/.vimrc && mv -v $(pwd)/.vimrc /home/kali
+
+    for zshrc in /home/kali/.zshrc /root/.zshrc; do
+        if ! grep -q 'export EDITOR="vim"' "$zshrc"; then
+            echo -e "${GREEN}[+]${NC} Add EDITOR="vim" into $zshrc"
+            echo 'export EDITOR="vim"' >> "$zshrc"
+        else
+            echo -e "${GREEN}[+]${NC} EDITOR="vim" is already set in $zshrc"
+        fi
+    done
 }
 
 function main()
 {
-    sudo cp -v ./etc/resolv.conf /etc/
-    sudo cp -v ./etc/environment /etc/
-    sudo systemctl start tor
+    cp -v ./etc/resolv.conf /etc/
+    cp -v ./etc/environment /etc/
+    systemctl start tor
 
 
     if [[ $EUID -eq 0 ]]; then
@@ -37,11 +46,12 @@ function main()
             echo "$GREEN[+]$NC install the script_vox"
             git clone --recursive https://github.com/NzxSec/script_vox
             cd script_vox
-            sudo git submodule update --remote
+            git submodule update --remote
 
         fi
     else
         echo -e "$RED [X] ERROR: YOU MOUST BE ROOT"
+        exit 1
     fi
 }
 
