@@ -17,14 +17,16 @@ function ascii_banner()
 
 function init_live_kali()
 {
-    sudo apt update && sudo apt install riseup-vpn fcitx5-anthy tor keepassxc gpg sn0int proxychains-ng
+    sudo apt update && sudo apt install riseup-vpn ibus-mozc tor keepassxc gpg sn0int proxychains-ng
     $CURL_VIMRC_CMD && cp -v "$(pwd)/.vimrc" ~/.vimrc && mv -v $(pwd)/.vimrc /home/kali
 }
 
 function main()
 {
-    mv -v ./etc/resolve.conf /etc/
+    sudo cp -v ./etc/resolv.conf /etc/
+    sudo cp -v ./etc/environment /etc/
     sudo systemctl start tor
+
 
     if [[ $EUID -eq 0 ]]; then
         ascii_banner
